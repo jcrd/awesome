@@ -1,0 +1,13 @@
+diff --git a/awesomerc.lua b/awesomerc.lua
+index d01f13ce..1e04372d 100644
+--- a/awesomerc.lua
++++ b/awesomerc.lua
+@@ -43,7 +43,7 @@ beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
+ -- @DOC_DEFAULT_APPLICATIONS@
+ -- This is used later as the default terminal and editor to run.
+ terminal = "xterm"
+-editor = os.getenv("EDITOR") or "nano"
++editor = os.getenv("EDITOR") or "vi"
+ editor_cmd = terminal .. " -e " .. editor
+ 
+ -- Default modkey.
