@@ -1,0 +1,27 @@
+FROM supplantr/toolbox
+
+RUN dnf install -y asciidoctor
+RUN dnf install -y cmake
+RUN dnf install -y gcc
+RUN dnf install -y luajit-devel
+RUN dnf install -y lua-devel
+RUN dnf install -y lua-lgi
+RUN dnf install -y xmlto
+RUN dnf install -y ImageMagick
+RUN dnf install -y lua-ldoc
+RUN dnf install -y cairo-devel
+RUN dnf install -y dbus-devel
+RUN dnf install -y gdk-pixbuf2-devel
+RUN dnf install -y startup-notification-devel
+RUN dnf install -y libxdg-basedir-devel
+RUN dnf install -y libxcb-devel
+RUN dnf install -y xcb-util-devel
+RUN dnf install -y xcb-util-xrm-devel
+RUN dnf install -y xcb-util-cursor-devel
+RUN dnf install -y xcb-util-keysyms-devel
+RUN dnf install -y libxkbcommon-devel
+RUN dnf install -y libxkbcommon-x11-devel
+RUN dnf install -y xcb-util-wm-devel
+
+RUN dnf copr enable -y jcrd/awesome-luajit-nightly
+RUN dnf install -y luajit-lgi
