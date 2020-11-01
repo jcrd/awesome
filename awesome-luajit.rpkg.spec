@@ -140,7 +140,7 @@ desktop-file-validate %{buildroot}%{_datadir}/xsessions/%{name}.desktop
 
 
 %changelog
-* Sun Oct 31 2020 James Reed <jcrd@tuta.io> - master
+* Sat Oct 31 2020 James Reed <jcrd@tuta.io> - master
 - Use cmake -B flag to fix build in F33
 
 * Sun Jul 26 2020 James Reed <jcrd@tuta.io> - master
