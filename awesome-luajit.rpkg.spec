@@ -105,8 +105,7 @@ sed -i 's/LUA_COV_RUNNER lua\b/LUA_COV_RUNNER luajit/' \
        -DAWESOME_DOC_PATH=%{_pkgdocdir} \
        -DSYSCONFDIR=%{_sysconfdir} \
        -DLUA_INCLUDE_DIR=%{luajitincludedir} \
-       -DLUA_LIBRARY=%{luajitlib} \
-       ..
+       -DLUA_LIBRARY=%{luajitlib}
 make -C build VERBOSE=1 %{?_smp_mflags} awesome
 
 
