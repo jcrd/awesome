@@ -101,13 +101,12 @@ sed -i 's/LUA_COV_RUNNER lua\b/LUA_COV_RUNNER luajit/' \
 
 
 %build
-mkdir build; pushd build
-%cmake -DAWESOME_DOC_PATH=%{_pkgdocdir} \
+%cmake -B build \
+       -DAWESOME_DOC_PATH=%{_pkgdocdir} \
        -DSYSCONFDIR=%{_sysconfdir} \
        -DLUA_INCLUDE_DIR=%{luajitincludedir} \
        -DLUA_LIBRARY=%{luajitlib} \
        ..
-popd
 make -C build VERBOSE=1 %{?_smp_mflags} awesome
 
 
@@ -141,6 +140,9 @@ desktop-file-validate %{buildroot}%{_datadir}/xsessions/%{name}.desktop
 
 
 %changelog
+* Sun Oct 31 2020 James Reed <jcrd@tuta.io> - master
+- Use cmake -B flag to fix build in F33
+
 * Sun Jul 26 2020 James Reed <jcrd@tuta.io> - master
 - Build with luajit
 

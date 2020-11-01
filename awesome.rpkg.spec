@@ -91,11 +91,9 @@ sed -i -e '1 s,^#!.*,#!%{_bindir}/bash,' utils/awesome-client
 
 
 %build
-mkdir build; pushd build
-%cmake -DAWESOME_DOC_PATH=%{_pkgdocdir} \
-       -DSYSCONFDIR=%{_sysconfdir} \
-       ..
-popd
+%cmake -B build \
+       -DAWESOME_DOC_PATH=%{_pkgdocdir} \
+       -DSYSCONFDIR=%{_sysconfdir}
 make -C build VERBOSE=1 %{?_smp_mflags} awesome
 
 
@@ -129,6 +127,9 @@ desktop-file-validate %{buildroot}%{_datadir}/xsessions/%{name}.desktop
 
 
 %changelog
+* Sun Oct 31 2020 James Reed <jcrd@tuta.io> - master
+- Use cmake -B flag to fix build in F33
+
 * Wed May 20 2020 James Reed <jcrd@tuta.io> - master
 - Translate to rpkg spec template to build from git master
 
