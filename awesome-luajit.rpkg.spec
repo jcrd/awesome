@@ -2,6 +2,7 @@
 %global luajitver 2.1
 %global luajitincludedir %{_includedir}/luajit-%{luajitver}
 %global luajitlib %{_libdir}/libluajit-%{luaver}.so
+%global luajitexe %{_bindir}/luajit
 
 Name:       {{{ git_name name="awesome" }}}
 Version:    {{{ git_version lead="$(git tag | sed -n 's/^v//p' | sort --version-sort -r | head -n1)" }}}
@@ -105,7 +106,8 @@ sed -i 's/LUA_COV_RUNNER lua\b/LUA_COV_RUNNER luajit/' \
        -DAWESOME_DOC_PATH=%{_pkgdocdir} \
        -DSYSCONFDIR=%{_sysconfdir} \
        -DLUA_INCLUDE_DIR=%{luajitincludedir} \
-       -DLUA_LIBRARY=%{luajitlib}
+       -DLUA_LIBRARY=%{luajitlib} \
+       -DLUA_EXECUTABLE=%{luajitexe}
 make -C build VERBOSE=1 %{?_smp_mflags} awesome
 
 
